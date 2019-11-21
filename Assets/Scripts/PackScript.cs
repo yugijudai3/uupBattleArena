@@ -5,14 +5,16 @@ using UnityEngine;
 public class PackScript : MonoBehaviour
 {
     public GameObject Pack;
+    private GameObject Clone;
+    public float speed;
 
     void Start()
     {
-        Instantiate(Pack, new Vector3(0, 0.15f ,0), Quaternion.identity);
+        Clone = Instantiate(Pack, new Vector3(0, 0.15f ,0), Quaternion.identity);
+        Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
     }
 
     void Update()
     {
-        
     }
 }
