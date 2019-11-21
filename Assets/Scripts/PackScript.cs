@@ -8,7 +8,7 @@ public class PackScript : MonoBehaviour
 
     void Start()
     {
-        Instantiate(Pack, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(Pack, new Vector3(0, 0.15f ,0), Quaternion.identity);
     }
 
     void Update()
