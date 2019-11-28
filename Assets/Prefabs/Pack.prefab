@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6823787229329240285}
   - component: {fileID: 6823787229329240289}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Pack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,12 +89,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 84
+  m_CollisionDetection: 1
 --- !u!64 &6823787229329240289
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6823787229329240290}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 98d4b256e04b42f46b5fe6eef00139da, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
