@@ -21,7 +21,7 @@ public class PackScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.time);
+
 
         time = Mathf.Floor(Time.time);
         if (time % 4 == 0 && waitFlag == false && time != 0)
