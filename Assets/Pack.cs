@@ -37,4 +37,13 @@ public class Pack : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Mallet")
+        {
+            GetComponent<Renderer>().material.color = collision.gameObject.GetComponent<Renderer>().material.color;
+        }
+    }
 }
