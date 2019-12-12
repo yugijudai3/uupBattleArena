@@ -8,23 +8,29 @@ public class PackScript : MonoBehaviour
     private GameObject Clone;
     public float speed;
     public float time;
+    public float pastTime;
+    public float interval;
     public bool waitFlag;
 
     void Start()
     {
         speed = 5;
+        interval = Mathf.Floor(Random.Range(3, 5) - 1);
+
         Clone = Instantiate(Pack, new Vector3(0, 0.15f ,0), Quaternion.identity);
         Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
         Rigidbody rb = Clone.GetComponent<Rigidbody>();
         rb.AddForce(Clone.transform.forward * speed, ForceMode.Impulse);
+        pastTime = time;
+        waitFlag = true;
     }
 
     void Update()
     {
 
-
+        
         time = Mathf.Floor(Time.time);
-        if (time % 4 == 0 && waitFlag == false && time != 0)
+        if (time - pastTime == interval && waitFlag == false && time != 0)
         {
             Clone = Instantiate(Pack, new Vector3(0, 0.15f, 0), Quaternion.identity);
             Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
@@ -32,8 +38,10 @@ public class PackScript : MonoBehaviour
             Debug.Log(Clone.gameObject.tag);
             Rigidbody rb = Clone.GetComponent<Rigidbody>();
             rb.AddForce(Clone.transform.forward * speed, ForceMode.Impulse);
+            pastTime = time;
             waitFlag = true;
-        } else if (time % 4 != 0) {
+        } else if (waitFlag == true) {
+            interval = Mathf.Floor(Random.Range(3, 5) - 1);
             waitFlag = false;
         }
     }
