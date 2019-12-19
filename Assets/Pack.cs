@@ -21,24 +21,28 @@ public class Pack : MonoBehaviour
         {
             Debug.Log("1");
             scoreScript.score[2]--;
+            colorScore();
             Destroy(this.gameObject);
          }
         if (4 < this.transform.position.x)
         {
             Debug.Log("2");
             scoreScript.score[1]--;
+            colorScore();
             Destroy(this.gameObject);
         }
         if (-4 > this.transform.position.z)
         {
             Debug.Log("3");
             scoreScript.score[0]--;
+            colorScore();
             Destroy(this.gameObject);
         }
         if (4 < this.transform.position.z)
         {
             Debug.Log("4");
             scoreScript.score[3]--;
+            colorScore();
             Destroy(this.gameObject);
         }
     }
@@ -52,4 +56,27 @@ public class Pack : MonoBehaviour
             GetComponent<Renderer>().material.color = collision.gameObject.GetComponent<Renderer>().material.color;
         }
     }
+    void colorScore()
+    {
+        if (GetComponent<Renderer>().material.color == new Color(1, 1, 1, 1))
+        {
+            scoreScript.score[0]++;
+        }
+
+        if (GetComponent<Renderer>().material.color == new Color(1, 0.537f, 0, 1))
+        {
+            scoreScript.score[1]++;
+        }
+
+        if (GetComponent<Renderer>().material.color == new Color(0.648f, 0, 1, 1))
+        {
+            scoreScript.score[2]++;
+        }
+
+        if (GetComponent<Renderer>().material.color == new Color(0.840f, 0.091f, 0.128f, 1))
+        {
+            scoreScript.score[3]++;
+        }
+    }
 }
+
