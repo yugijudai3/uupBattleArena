@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMalletScript : MonoBehaviour
 {
     public float movesum = 0f;
-    private float speed = 0.05f;
+    public float speed = 0.05f;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class PlayerMalletScript : MonoBehaviour
             transform.Translate(Vector3.back * speed);
             movesum += speed;
 
-            if (movesum > 1.2)
+            if (movesum < 1.2)
             {
                 speed = 0f;
             }
@@ -36,7 +36,7 @@ public class PlayerMalletScript : MonoBehaviour
             transform.Translate(Vector3.forward * speed);
             movesum -= speed;
 
-            if (movesum < -1.2)
+            if (movesum > -1.2)
             {
                 speed = 0f;
             }
@@ -45,5 +45,6 @@ public class PlayerMalletScript : MonoBehaviour
                 speed = 0.05f;
             }
         }
+        Debug.Log(movesum);
     }
 }
