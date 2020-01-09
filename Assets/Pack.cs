@@ -5,11 +5,24 @@ using UnityEngine;
 public class Pack : MonoBehaviour
 {
     [SerializeField] private manager scoreScript;
-       // Start is called before the first frame update
+    public Color malletColor1;
+    public Color malletColor2;
+    public Color malletColor3;
+    public Color malletColor4;
+
+    // Start is called before the first frame update
     void Start()
     {
         GameObject managerObject = GameObject.Find("GameManager");
         scoreScript = managerObject.GetComponent<manager>();
+        GameObject mallet1 = GameObject.Find("Mallet1");
+        malletColor1 = mallet1.GetComponent<Renderer>().material.color;
+        GameObject mallet2 = GameObject.Find("Mallet2");
+        malletColor2 = mallet2.GetComponent<Renderer>().material.color;
+        GameObject mallet3 = GameObject.Find("Mallet3");
+        malletColor3 = mallet3.GetComponent<Renderer>().material.color;
+        GameObject mallet4 = GameObject.Find("Mallet4");
+        malletColor4 = mallet4.GetComponent<Renderer>().material.color;
 
 
     }
@@ -21,28 +34,28 @@ public class Pack : MonoBehaviour
         {
             Debug.Log("1");
             scoreScript.score[2]--;
-            colorScore();
+            ColorScore();
             Destroy(this.gameObject);
          }
         if (4 < this.transform.position.x)
         {
             Debug.Log("2");
             scoreScript.score[1]--;
-            colorScore();
+            ColorScore();
             Destroy(this.gameObject);
         }
         if (-4 > this.transform.position.z)
         {
             Debug.Log("3");
             scoreScript.score[0]--;
-            colorScore();
+            ColorScore();
             Destroy(this.gameObject);
         }
         if (4 < this.transform.position.z)
         {
             Debug.Log("4");
             scoreScript.score[3]--;
-            colorScore();
+            ColorScore();
             Destroy(this.gameObject);
         }
     }
@@ -56,24 +69,25 @@ public class Pack : MonoBehaviour
             GetComponent<Renderer>().material.color = collision.gameObject.GetComponent<Renderer>().material.color;
         }
     }
-    void colorScore()
+
+    void ColorScore()
     {
-        if (GetComponent<Renderer>().material.color == new Color(1, 1, 1, 1))
+        if (GetComponent<Renderer>().material.color == malletColor3)
         {
             scoreScript.score[0]++;
         }
 
-        if (GetComponent<Renderer>().material.color == new Color(1, 0.537f, 0, 1))
+        if (GetComponent<Renderer>().material.color == malletColor2)
         {
             scoreScript.score[1]++;
         }
 
-        if (GetComponent<Renderer>().material.color == new Color(0.648f, 0, 1, 1))
+        if (GetComponent<Renderer>().material.color == malletColor1)
         {
             scoreScript.score[2]++;
         }
 
-        if (GetComponent<Renderer>().material.color == new Color(0.840f, 0.091f, 0.128f, 1))
+        if (GetComponent<Renderer>().material.color == malletColor4)
         {
             scoreScript.score[3]++;
         }
