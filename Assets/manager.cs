@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class manager : MonoBehaviour
 {
-    public int[] score = new int[4];
+    public static int[] score = new int[4];
     // Start is called before the first frame update
     void Start()
     {

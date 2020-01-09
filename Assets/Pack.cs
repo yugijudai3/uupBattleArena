@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pack : MonoBehaviour
 {
-    [SerializeField] private manager scoreScript;
     public Color malletColor1;
     public Color malletColor2;
     public Color malletColor3;
@@ -13,8 +12,6 @@ public class Pack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject managerObject = GameObject.Find("GameManager");
-        scoreScript = managerObject.GetComponent<manager>();
         GameObject mallet1 = GameObject.Find("Mallet1");
         malletColor1 = mallet1.GetComponent<Renderer>().material.color;
         GameObject mallet2 = GameObject.Find("Mallet2");
@@ -33,28 +30,28 @@ public class Pack : MonoBehaviour
         if (-4 > this.transform.position.x)
         {
             Debug.Log("1");
-            scoreScript.score[2]--;
+            manager.score[2]--;
             ColorScore();
             Destroy(this.gameObject);
          }
         if (4 < this.transform.position.x)
         {
             Debug.Log("2");
-            scoreScript.score[1]--;
+            manager.score[1]--;
             ColorScore();
             Destroy(this.gameObject);
         }
         if (-4 > this.transform.position.z)
         {
             Debug.Log("3");
-            scoreScript.score[0]--;
+            manager.score[0]--;
             ColorScore();
             Destroy(this.gameObject);
         }
         if (4 < this.transform.position.z)
         {
             Debug.Log("4");
-            scoreScript.score[3]--;
+            manager.score[3]--;
             ColorScore();
             Destroy(this.gameObject);
         }
@@ -74,22 +71,22 @@ public class Pack : MonoBehaviour
     {
         if (GetComponent<Renderer>().material.color == malletColor3)
         {
-            scoreScript.score[0]++;
+            manager.score[0]++;
         }
 
         if (GetComponent<Renderer>().material.color == malletColor2)
         {
-            scoreScript.score[1]++;
+            manager.score[1]++;
         }
 
         if (GetComponent<Renderer>().material.color == malletColor1)
         {
-            scoreScript.score[2]++;
+            manager.score[2]++;
         }
 
         if (GetComponent<Renderer>().material.color == malletColor4)
         {
-            scoreScript.score[3]++;
+            manager.score[3]++;
         }
     }
 }
