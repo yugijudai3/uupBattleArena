@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PackScript : MonoBehaviour
 {
@@ -14,15 +15,8 @@ public class PackScript : MonoBehaviour
 
     void Start()
     {
-        speed = 5;
-        interval = Mathf.Floor(Random.Range(3, 5) - 1);
-
-        Clone = Instantiate(Pack, new Vector3(0, 0.15f ,0), Quaternion.identity);
-        Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
-        Rigidbody rb = Clone.GetComponent<Rigidbody>();
-        rb.AddForce(Clone.transform.forward * speed, ForceMode.Impulse);
-        pastTime = time;
-        waitFlag = true;
+        Invoke("GameStart", 5);
+        Invoke("GameEnd", 15);
     }
 
     void Update()
@@ -33,7 +27,8 @@ public class PackScript : MonoBehaviour
         if (time - pastTime == interval && waitFlag == false && time != 0)
         {
             Clone = Instantiate(Pack, new Vector3(0, 0.15f, 0), Quaternion.identity);
-            Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
+            Clone.transform.Rotate(new Vector3(0, Random.Range(160, 200), 0));
+            // Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
             Clone.gameObject.tag = "nanndemoiiyo" + Random.Range(1, 2).ToString();
             Debug.Log(Clone.gameObject.tag);
             Rigidbody rb = Clone.GetComponent<Rigidbody>();
@@ -53,5 +48,24 @@ public class PackScript : MonoBehaviour
         {
             Destroy(this);
         } 
+    }
+
+    void GameStart()
+    {
+        speed = 5;
+        interval = Mathf.Floor(Random.Range(3, 5) - 1);
+
+        Clone = Instantiate(Pack, new Vector3(0, 0.15f, 0), Quaternion.identity);
+        Clone.transform.Rotate(new Vector3(0, Random.Range(160, 200), 0));
+        // Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
+        Rigidbody rb = Clone.GetComponent<Rigidbody>();
+        rb.AddForce(Clone.transform.forward * speed, ForceMode.Impulse);
+        pastTime = time;
+        waitFlag = true;
+    }
+
+    void GameEnd()
+    {
+        SceneManager.LoadScene("resultscene");
     }
 }
