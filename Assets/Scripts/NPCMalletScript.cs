@@ -93,7 +93,21 @@ public class NPCMalletScript : MonoBehaviour
         foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
         {
             //自身と取得したオブジェクトの距離を取得
-            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
+            if (transform.localEulerAngles.y == 180)
+            {
+                tmpDis = obs.transform.position.x - nowObj.transform.position.x;
+            }
+
+            if (transform.localEulerAngles.y == 0)
+            {
+                tmpDis = nowObj.transform.position.x - obs.transform.position.x;
+            }
+
+            if (transform.localEulerAngles.y == 90)
+            {
+                tmpDis = obs.transform.position.z - nowObj.transform.position.z;
+            }
+            //   tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
 
             //オブジェクトの距離が近いか、距離0であればオブジェクト名を取得
             //一時変数に距離を格納
