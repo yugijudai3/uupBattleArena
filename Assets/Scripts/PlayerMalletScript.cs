@@ -9,18 +9,18 @@ public class PlayerMalletScript : MonoBehaviour
 
     void Start()
     {
-        
+        movesum = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.acceleration.x >= 0f)
+        if (Input.acceleration.x >= 0.3f)
         {
             transform.Translate(Vector3.back * speed);
             movesum += speed;
 
-            if (movesum <= 1.2)
+            if (movesum >= 1.2)
             {
                 speed = 0f;
             }
@@ -29,14 +29,13 @@ public class PlayerMalletScript : MonoBehaviour
                 speed = 0.05f;
             }
         }
-
-        if (Input.acceleration.x <= 0f)
+        else if (Input.acceleration.x <= -0.3f)
         {
             
             transform.Translate(Vector3.forward * speed);
             movesum -= speed;
 
-            if (movesum >= -1.2)
+            if (movesum <= -1.2)
             {
                 speed = 0f;
             }
@@ -45,6 +44,9 @@ public class PlayerMalletScript : MonoBehaviour
                 speed = 0.05f;
             }
         }
-        Debug.Log(movesum);
+        else
+        {
+            speed = 0f;
+        }
     }
 }
