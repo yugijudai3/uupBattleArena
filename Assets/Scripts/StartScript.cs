@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartScript : MonoBehaviour
 {
-    public int score1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,11 @@ public class StartScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Awake()
+    {
+        manager.score = new int[4];
     }
 
     public void OnClick()
