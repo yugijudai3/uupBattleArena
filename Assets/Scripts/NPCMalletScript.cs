@@ -42,7 +42,7 @@ public class NPCMalletScript : MonoBehaviour
             {
                 speed = maxSpeed * -1;
             }
-            if (nearObj.transform.position.z < 1.5f && nearObj.transform.position.z > -1.5f)
+            if (nearObj.transform.position.z < 1.2f && nearObj.transform.position.z > -1.2f)
             {
                 transform.Translate(Vector3.forward * speed);
             }
@@ -58,7 +58,7 @@ public class NPCMalletScript : MonoBehaviour
             {
                 speed = maxSpeed * -1;
             }
-            if (nearObj.transform.position.z < 1.5f && nearObj.transform.position.z > -1.5f)
+            if (nearObj.transform.position.z < 1.2f && nearObj.transform.position.z > -1.2f)
             {
                 transform.Translate(Vector3.back * speed);
             }
@@ -74,7 +74,7 @@ public class NPCMalletScript : MonoBehaviour
             {
                 speed = maxSpeed * -1;
             }
-            if (nearObj.transform.position.x < 1.5f && nearObj.transform.position.x > -1.5f)
+            if (nearObj.transform.position.x < 1.2f && nearObj.transform.position.x > -1.2f)
             {
                 transform.Translate(Vector3.forward * speed);
             }
