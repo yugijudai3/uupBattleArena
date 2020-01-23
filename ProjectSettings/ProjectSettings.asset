@@ -707,7 +707,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -728,10 +728,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 2008283a-32a2-4c30-8b1c-9c8bd8b17dc0
+  cloudProjectId: 2336c197-d060-496b-a6b5-2866f7c4db7f
   framebufferDepthMemorylessMode: 0
   projectName: uupBattleArena
-  organizationId: yugi3
+  organizationId: pcclassamagaeru
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
