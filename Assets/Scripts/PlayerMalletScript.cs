@@ -15,7 +15,7 @@ public class PlayerMalletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.acceleration.x >= 0.2f)
+        if (Input.acceleration.x >= 0.1f)
         {
             transform.Translate(Vector3.back * speed);
             movesum += speed;
@@ -26,10 +26,10 @@ public class PlayerMalletScript : MonoBehaviour
             }
             else
             {
-                speed = 0.05f;
+                speed = 0.1f;
             }
         }
-        else if (Input.acceleration.x <= -0.2f)
+        else if (Input.acceleration.x <= -0.1f)
         {
             
             transform.Translate(Vector3.forward * speed);
@@ -41,7 +41,7 @@ public class PlayerMalletScript : MonoBehaviour
             }
             else
             {
-                speed = 0.05f;
+                speed = 0.1f;
             }
         }
         else
