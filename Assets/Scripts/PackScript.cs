@@ -30,7 +30,11 @@ public class PackScript : MonoBehaviour
             Clone.transform.Rotate(new Vector3(0, Random.Range(160, 200), 0));
             // Clone.transform.Rotate(new Vector3(0, Random.Range(360, -360), 0));
             // Clone.gameObject.tag = "nanndemoiiyo" + Random.Range(1, 2).ToString();
+<<<<<<< HEAD
             // Debug.Log(Clone.gameObject.tag);
+=======
+            Debug.Log(Clone.gameObject.tag);
+>>>>>>> c5f084a47ad544bb2005239ffe8c54904d697c29
             Rigidbody rb = Clone.GetComponent<Rigidbody>();
             rb.AddForce(Clone.transform.forward * speed, ForceMode.Impulse);
             pastTime = time;
