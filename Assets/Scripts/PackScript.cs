@@ -12,9 +12,13 @@ public class PackScript : MonoBehaviour
     public float pastTime;
     public float interval;
     public bool waitFlag;
+    public AudioClip sound1;
+    AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        GetComponent<AudioSource>().Play();
         Invoke("GameStart", 5);
         Invoke("GameEnd", 15);
     }
@@ -68,5 +72,10 @@ public class PackScript : MonoBehaviour
     void GameEnd()
     {
         SceneManager.LoadScene("resultscene");
+    }
+    void Startsunds()
+    {
+        audioSource.PlayOneShot(sound1);
+
     }
 }
