@@ -15,6 +15,7 @@ public class PackScript : MonoBehaviour
     public AudioClip startSound;
     public AudioClip EndSound;
     public AudioClip ResultSound;
+    public AudioClip ResultEndSound;
     AudioSource audioSource;
 
     void Start()
@@ -22,7 +23,7 @@ public class PackScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         GetComponent<AudioSource>().Play();
         Invoke("GameStart", 5);
-        Invoke("GameEnd", 15);
+        Invoke("GameEnd", 30);
     }
 
     void Update()
@@ -73,12 +74,19 @@ public class PackScript : MonoBehaviour
 
     void GameEnd()
     {
-        
-        SceneManager.LoadScene("resultscene");
+        audioSource.PlayOneShot(EndSound);
+        Invoke("Result", 1);
     }
+
     void Startsunds()
     {
         audioSource.PlayOneShot(startSound);
+    }
 
+    void Result()
+    {
+        audioSource.PlayOneShot(ResultSound);
+        audioSource.PlayOneShot(ResultEndSound);
+        SceneManager.LoadScene("resultscene");
     }
 }

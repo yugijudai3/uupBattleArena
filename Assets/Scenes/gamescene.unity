@@ -1517,5 +1517,20 @@ PrefabInstance:
       propertyPath: speed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6062303416079047515, guid: 0a4d2dff342d84a4c94af9f62fdec898,
+        type: 3}
+      propertyPath: sound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b80872ad5fa2e4428c9202343f3a117, type: 3}
+    - target: {fileID: 6062303416079047515, guid: 0a4d2dff342d84a4c94af9f62fdec898,
+        type: 3}
+      propertyPath: startSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b80872ad5fa2e4428c9202343f3a117, type: 3}
+    - target: {fileID: 6062303416079047515, guid: 0a4d2dff342d84a4c94af9f62fdec898,
+        type: 3}
+      propertyPath: EndSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d47d528a9a566543825bf7c9b087aff, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a4d2dff342d84a4c94af9f62fdec898, type: 3}
