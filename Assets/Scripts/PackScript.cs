@@ -20,16 +20,13 @@ public class PackScript : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        GetComponent<AudioSource>().Play();
-        Invoke("GameStart", 5);
-        Invoke("GameEnd", 30);
+        Invoke("StartSounds", 1);
+        Invoke("GameStart", 3);
+        Invoke("GameEnd", 33);
     }
 
     void Update()
-    {
-
-        
+    {   
         time = Mathf.Floor(Time.time);
         if (time - pastTime == interval && waitFlag == false && time != 0)
         {
@@ -46,6 +43,11 @@ public class PackScript : MonoBehaviour
             interval = Mathf.Floor(Random.Range(2, 4) - 1);
             waitFlag = false;
         }
+
+        if (!audioSource.isPlaying)
+        {
+            waitFlag = true;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -59,6 +61,9 @@ public class PackScript : MonoBehaviour
 
     void GameStart()
     {
+        audioSource = GetComponent<AudioSource>();
+        GetComponent<AudioSource>().Play();
+
         speed = 5;
         interval = Mathf.Floor(Random.Range(2, 4) - 1);
 
@@ -74,19 +79,32 @@ public class PackScript : MonoBehaviour
 
     void GameEnd()
     {
+        audioSource = GetComponent<AudioSource>();
+        GetComponent<AudioSource>().Stop();
         audioSource.PlayOneShot(EndSound);
-        Invoke("Result", 1);
+        GameObject[] AvailablePack = GameObject.FindGameObjectsWithTag("Pack");
+        foreach(GameObject Pack in AvailablePack)
+        {
+            Rigidbody rb = Pack.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
+        }
+        Invoke("EndSounds", 2);
     }
 
-    void Startsunds()
+    void StartSounds()
     {
         audioSource.PlayOneShot(startSound);
     }
 
-    void Result()
+    void EndSounds()
     {
+        Invoke("GoResult", 3);
         audioSource.PlayOneShot(ResultSound);
         audioSource.PlayOneShot(ResultEndSound);
+    }
+
+    void GoResult()
+    {
         SceneManager.LoadScene("resultscene");
     }
 }
